@@ -1,0 +1,13 @@
+{
+  "dicom": "C:/Users/alexs/Desktop/test_NOISY_BLUR",
+  "out_dicom": "C:/Users/alexs/Desktop/test_NOISY_BLUR_TEST_RESTORED",
+
+  "denoise": "nlm",
+  "nlm_h": null,
+  "tv_weight": 0.07,
+  "deblur": "rl",
+  "psf_gauss": 1.2,
+  "psf_size": null,
+  "iters": 15,
+  "clip": true
+}
