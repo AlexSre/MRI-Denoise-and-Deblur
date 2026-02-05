@@ -4,7 +4,6 @@ import json
 import os
 import uuid
 from typing import Any, Dict, Optional
-
 import numpy as np
 import SimpleITK as sitk
 from skimage.restoration import denoise_nl_means, estimate_sigma, denoise_tv_chambolle, richardson_lucy
@@ -15,11 +14,12 @@ def new_uid() -> str:
 
 
 
+
 def gaussian_psf_2d(sigma: float, size: Optional[int] = None) -> np.ndarray:
     if sigma <= 0:
         raise ValueError("psf_gauss must be > 0")
     if size is None:
-        size = int(np.ceil(sigma * 6)) | 1  # odd
+        size = int(np.ceil(sigma * 6)) | 1
         size = max(size, 7)
     ax = np.arange(-(size // 2), size // 2 + 1, dtype=np.float32)
     xx, yy = np.meshgrid(ax, ax)
@@ -85,7 +85,65 @@ def pick_series_uid(dicom_folder: str) -> str:
     uids = reader.GetGDCMSeriesIDs(dicom_folder)
     if not uids:
         raise RuntimeError(f"No DICOM series found in folder: {dicom_folder}")
-    # choose series with most slices
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     best_uid = max(uids, key=lambda uid: len(reader.GetGDCMSeriesFileNames(dicom_folder, uid)))
     return best_uid
 
